@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+<!-- 환경설정 : spring과 myBatis연결, jdbc관련 객체 주입(Connection정보) -->
+	<bean id="herCar" class="com.di.Tivoli">
+		<constructor-arg index="0" type="java.lang.String" value="빨강"/>
+		<constructor-arg index="1" type="int" value="5"/>
+	</bean> 
+	<bean id="myCar" class="com.di.Tivoli"/>
+	<bean id="helloBean" class="com.di.HelloBeanImpl">
+		<property name="msg">
+		<!-- ApplicationContext객체 혹은 BeanFactory객체가 자원관리를 대신 해줌
+		     넌 인스턴스화를 할 필요가 없데요.
+		     왜냐면 스프링에서 필요한 시점에 객체를 주입해주니까....
+		     spring-context.jar, spring-beans.jar
+		     이 두개 모듈은 spring-core.jar기반에서 동작됨.
+		  -->
+			<value>hi!!!</value>
+		</property>
+	</bean>
+</beans>
